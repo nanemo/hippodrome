@@ -132,4 +132,17 @@ class HorseTest {
         }
     }
 
+    @ParameterizedTest
+    @ValueSource(doubles = {0.1, 0.6, 0.3, 0.8})
+    void getRandomDouble(double random) {
+        try (MockedStatic<Horse> mockedStatic = mockStatic(Horse.class)) {
+            Horse horse = new Horse("Name", 5, 16);
+            mockedStatic.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(random);
+
+            horse.move();
+
+            assertEquals(16 + 5 * random, horse.getDistance());
+        }
+    }
+
 }
