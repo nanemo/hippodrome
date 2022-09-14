@@ -8,10 +8,10 @@
     <artifactId>hippodrome</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
+    <properties>                                                        <!-- Add version for variables-->
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <versionJUnit>2.18.0</versionJUnit>
+        <versionlog4j>2.18.0</versionlog4j>
         <versionOfCommons-Lang3Dependency>3.12.0</versionOfCommons-Lang3Dependency>
         <versionOfCompilerPlugin>3.10.1</versionOfCompilerPlugin>
         <versionOfJarPlugin>3.2.2</versionOfJarPlugin>
@@ -19,8 +19,10 @@
         <versionOfDependencyPlugin>3.3.0</versionOfDependencyPlugin>
         <versionOfPlexus>3.4.2</versionOfPlexus>
         <versionOfSource>2.2.1</versionOfSource>
-        <versionOfJUnitParms>5.9.0</versionOfJUnitParms>
-        <versionOfMockito>1.10.19</versionOfMockito>
+        <versionOfJupiter>5.9.0</versionOfJupiter>
+        <versionOfMockito>4.7.0</versionOfMockito>
+        <slf4j.version>1.7.36</slf4j.version>
+        <slf4jimpl.version>2.18.0</slf4jimpl.version>
     </properties>
 
     <dependencies>
@@ -30,72 +32,69 @@
             <version>${versionOfCommons-Lang3Dependency}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-utils</artifactId>
-            <version>${versionOfPlexus}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${versionJUnit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${versionJUnit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${versionJUnit}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${versionOfJUnitParms}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.9.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.7.0</version>
+            <version>${versionOfMockito}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            <version>4.7.0</version>
+            <version>${versionOfMockito}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.7.0</version>
+            <version>${versionOfMockito}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.18.0</version>
+            <version>${versionlog4j}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.18.0</version>
+            <version>${versionlog4j}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${versionOfJupiter}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${versionOfJupiter}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.18.0</version>
+            <version>${slf4jimpl.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.9</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

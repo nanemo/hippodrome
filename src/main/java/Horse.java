@@ -7,11 +7,11 @@ public class Horse {
     private final String name;
     private final double speed;
     private double distance;
-    private static final Logger logger =  LoggerFactory.getLogger(Horse.class);
+    private static final Logger logger = LoggerFactory.getLogger(Horse.class);
 
     public Horse(String name, double speed, double distance) {
         if (isNull(name)) {
-        logger.error("Name is null");
+            logger.error("Name is null");
             throw new IllegalArgumentException("Name cannot be null.");
         } else if (name.isBlank()) {
             logger.error("Name is blank");
@@ -30,7 +30,7 @@ public class Horse {
         this.speed = speed;
         this.distance = distance;
 
-        logger.error("Creating {}, name [{}], speed [{}]", this.getClass().getName(), getName(), getSpeed());
+        logger.debug("Creating {}, name {}, speed {}", this.getClass().getName(), getName(), getSpeed());
     }
 
     public Horse(String name, double speed) {
