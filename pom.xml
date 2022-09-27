@@ -11,7 +11,7 @@
     <properties>                                                        <!-- Add version for variables-->
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <log4j.version>2.18.0</log4j.version>
+        <log4j.version>2.19.0</log4j.version>
         <commons-Lang3.dependency.version>3.12.0</commons-Lang3.dependency.version>
         <compiler.plugin.version>3.10.1</compiler.plugin.version>
         <jar.plugin.version>3.2.2</jar.plugin.version>
@@ -19,10 +19,10 @@
         <dependency.plugin.version>3.3.0</dependency.plugin.version>
         <source.version>2.2.1</source.version>
         <jupiter.version>5.9.0</jupiter.version>
-        <mockito.version>4.7.0</mockito.version>
-        <slf4j.version>1.7.36</slf4j.version>
+        <mockito.version>4.8.0</mockito.version>
+        <slf4j.version>2.0.0</slf4j.version>
         <slf4jimpl.version>2.18.0</slf4jimpl.version>
-        <logback-classic.version>1.2.9</logback-classic.version>
+        <logback-classic.version>1.4.1</logback-classic.version>
     </properties>
 
     <dependencies>
@@ -53,13 +53,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j.version}</version>
-            <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

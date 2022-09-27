@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Configuration status="warn">
+<Configuration status="DEBUG">
     <Properties>
-        <Property name="basePath">C:/Users/nnbak/netbeans/JavaRushModule3/hippodrome/logs</Property>
+        <Property name="basePath">logs/hippodrome.log</Property>
     </Properties>
-
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT" follow="true">
+        <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <RollingFile name="infoLog"
-                     fileName="${basePath}/hippodrome1.log"
-                     filePattern="${basePath}/hippodrome1-%d{yyyy-MM-dd}.log">
-            <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <RollingFile name="LogToRollingFile" fileName="${basePath}"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
             <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
-
+            <DefaultRolloverStrategy max="10"/>
             <DefaultRolloverStrategy>
                 <Delete basePath="${basePath}" maxDepth="7">
                     <IfLastModified age="7d"/>
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
+
+        <RollingRandomAccessFile name="LogToRollingRandomAccessFile" fileName="${basePath}"
+                                 filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingRandomAccessFile>
+
     </Appenders>
     <Loggers>
-        <Logger name="hippodrome" additivity="false" level="info">
-            <AppenderRef ref="infoLog"  />
+        <Logger name="com.mkyong" level="debug" additivity="false">
+            <AppenderRef ref="LogToRollingRandomAccessFile"/>
+            <AppenderRef ref="LogToConsole"/>
         </Logger>
-        <Root level="info" additivity="false">
-            <AppenderRef ref="Console"  />
+        <Root level="error">
+            <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>
 </Configuration>

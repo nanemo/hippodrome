@@ -1,5 +1,5 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static java.util.Objects.isNull;
 
@@ -7,7 +7,7 @@ public class Horse {
     private final String name;
     private final double speed;
     private double distance;
-    private static final Logger logger = LoggerFactory.getLogger(Horse.class);
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
     public Horse(String name, double speed, double distance) {
         if (isNull(name)) {

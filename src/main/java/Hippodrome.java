@@ -1,5 +1,5 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -8,7 +8,7 @@ import java.util.List;
 import static java.util.Objects.isNull;
 
 public class Hippodrome {
-    private static final Logger logger = LoggerFactory.getLogger(Hippodrome.class);
+    private static final Logger logger =  LogManager.getLogger(Main.class);
 
     private final List<Horse> horses;
 
@@ -34,8 +34,8 @@ public class Hippodrome {
     }
 
     public Horse getWinner() {
-            return horses.stream()
-                    .max(Comparator.comparing(Horse::getDistance)).get();
+        return horses.stream()
+                .max(Comparator.comparing(Horse::getDistance)).get();
     }
 
     @Override
