@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Configuration status="ERROR" name="MyApp" packages="">
+<Configuration status="warn">
+    <Properties>
+        <Property name="basePath">C:/Users/nnbak/netbeans/JavaRushModule3/hippodrome/logs</Property>
+    </Properties>
+
     <Appenders>
-        <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
 
-        <RollingFile name="DEBUG-LOG" fileName="logs/hippodrome.log"
-                     filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log"/>
-        <DefaultRolloverStrategy>
-            <Delete basePath="logs" maxDepth="2">
-                <IfFileName glob="hippodrome.*.log"/>
-                <IfLastModified age="7d"/>
-            </Delete>
-        </DefaultRolloverStrategy>
-        <RollingFile/>
-        <console name="FILE" target="">
-            <PatternLayout pattern="%m%n"/>
-        </console>
+        <RollingFile name="infoLog"
+                     fileName="${basePath}/hippodrome1.log"
+                     filePattern="${basePath}/hippodrome1-%d{yyyy-MM-dd}.log">
+            <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy>
+                <Delete basePath="${basePath}" maxDepth="7">
+                    <IfLastModified age="7d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
     </Appenders>
-
-
     <Loggers>
-        <Root level="error">
-            <AppenderRef ref="DEBUG-LOG"/>
+        <Logger name="hippodrome" additivity="false" level="info">
+            <AppenderRef ref="infoLog"  />
+        </Logger>
+        <Root level="info" additivity="false">
+            <AppenderRef ref="Console"  />
         </Root>
     </Loggers>
 </Configuration>

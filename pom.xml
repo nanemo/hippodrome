@@ -11,66 +11,66 @@
     <properties>                                                        <!-- Add version for variables-->
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <versionlog4j>2.18.0</versionlog4j>
-        <versionOfCommons-Lang3Dependency>3.12.0</versionOfCommons-Lang3Dependency>
-        <versionOfCompilerPlugin>3.10.1</versionOfCompilerPlugin>
-        <versionOfJarPlugin>3.2.2</versionOfJarPlugin>
-        <versionOfSurefirePlugin>3.0.0-M4</versionOfSurefirePlugin>
-        <versionOfDependencyPlugin>3.3.0</versionOfDependencyPlugin>
-        <versionOfPlexus>3.4.2</versionOfPlexus>
-        <versionOfSource>2.2.1</versionOfSource>
-        <versionOfJupiter>5.9.0</versionOfJupiter>
-        <versionOfMockito>4.7.0</versionOfMockito>
+        <log4j.version>2.18.0</log4j.version>
+        <commons-Lang3.dependency.version>3.12.0</commons-Lang3.dependency.version>
+        <compiler.plugin.version>3.10.1</compiler.plugin.version>
+        <jar.plugin.version>3.2.2</jar.plugin.version>
+        <surefire.plugin.version>3.0.0-M4</surefire.plugin.version>
+        <dependency.plugin.version>3.3.0</dependency.plugin.version>
+        <source.version>2.2.1</source.version>
+        <jupiter.version>5.9.0</jupiter.version>
+        <mockito.version>4.7.0</mockito.version>
         <slf4j.version>1.7.36</slf4j.version>
         <slf4jimpl.version>2.18.0</slf4jimpl.version>
+        <logback-classic.version>1.2.9</logback-classic.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${versionOfCommons-Lang3Dependency}</version>
+            <version>${commons-Lang3.dependency.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>${versionOfMockito}</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            <version>${versionOfMockito}</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${versionOfMockito}</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>${versionlog4j}</version>
+            <version>${log4j.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>${versionlog4j}</version>
+            <version>${log4j.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${versionOfJupiter}</version>
+            <version>${jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-            <version>${versionOfJupiter}</version>
+            <version>${jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -93,7 +93,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.9</version>
+            <version>${logback-classic.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -103,7 +103,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${versionOfCompilerPlugin}</version>
+                <version>${compiler.plugin.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <compilerVersion>18</compilerVersion>
@@ -112,7 +112,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>${versionOfJarPlugin}</version>
+                <version>${jar.plugin.version}</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -131,7 +131,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${versionOfSurefirePlugin}</version>
+                <version>${surefire.plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
@@ -143,7 +143,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>${versionOfDependencyPlugin}</version>
+                <version>${dependency.plugin.version}</version>
                 <configuration>
                     <outputDirectory>${project.build.directory}/lib/</outputDirectory>
                     <overWriteReleases>true</overWriteReleases>
@@ -163,7 +163,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${versionOfSource}</version>
+                <version>${source.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
