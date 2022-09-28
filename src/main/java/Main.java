@@ -7,7 +7,7 @@ public class Main {
     private static final Logger logger =  LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        logger.info("Log started --------");
+        logger.info("Log started");
         List<Horse> horses = List.of(
                 new Horse("Butsefal", 2.4),
                 new Horse("Tuz Pik", 2.5),
